@@ -59,10 +59,10 @@ class Ticket extends Component {
           <button className="buy-btn">Купить за {convertedPrice}</button>
         </div>
         <div className="ticket-info">
-          <div className="from">
-            <div className="time">{ departure_time }</div>
-            <div className="place">{origin}, {origin_name}</div>
-            <div className="date">
+          <div className="ticket-from">
+            <div className="ticket-time">{ departure_time }</div>
+            <div className="ticket-place">{origin}, {origin_name}</div>
+            <div className="ticket-date">
               <Moment 
                 format="D MMM YYYY, ddd"
                 date={departure_date}
@@ -70,14 +70,14 @@ class Ticket extends Component {
               />
             </div>
           </div>
-          <div className="stops">
+          <div className="ticket-stops">
             {stopsString}
             <div className="line"></div>
           </div>
-          <div className="to">
-            <div className="time">{arrival_time}</div>
-            <div className="place">{destination_name}, {destination}</div>
-            <div className="date">
+          <div className="ticket-to">
+            <div className="ticket-time">{arrival_time}</div>
+            <div className="ticket-place">{destination_name}, {destination}</div>
+            <div className="ticket-date">
               <Moment
                 format="D MMM YYYY, ddd"
                 date={arrival_date} 
