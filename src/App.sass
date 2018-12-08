@@ -1,0 +1,138 @@
+.app
+  display: flex
+
+.ticket,
+.filters
+  box-shadow: 0px 1px 4px rgba(91, 137, 164, 0.25)
+  border-radius: 5px
+  
+.ticket
+  min-width: 550px
+  min-height: 165px
+  background-color: #fff
+  margin-bottom: 10px
+  &-buy
+    width: 30%
+    padding: 20px
+    display: inline-flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    border-right: 1px solid #ECEFF1
+    .ticket-logo
+      max-width: 100px
+      margin-bottom: 10px
+    .buy-btn
+      padding: 15px
+      color: white
+      border: none
+      background: #FF6D00
+      box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1), 0px 1px 0px #D64D08
+      border-radius: 5px
+      cursor: pointer
+      text-align: center
+      transition: .1s
+      &:hover
+        background: lighten(#FF6D00, 10%)
+      &:active
+        transform: translateY(2px)
+  &-info
+    width: 70%
+    padding: 20px
+    display: inline-flex
+    flex-wrap: wrap
+    justify-content: space-between
+    .to
+      text-align: right
+    .time
+      font-size: 32px
+      color: #4A4A4A
+      margin-bottom: 1px
+    .place
+      margin-bottom: 3px
+      font-weight: 700
+      font-size: 12px
+      color: #4A4A4A
+    .date
+      font-weight: 300
+      font-size: 12px
+      color: #8B9497
+    .stops
+      font-weight: 600
+      line-height: 12px
+      font-size: 10px
+      text-align: center
+      text-transform: uppercase
+      color: #8B9497
+      border-bottom: 1px dotted #8B9497
+      align-self: flex-start
+      &-input
+        background-color: none
+        border: 1px solid blue
+
+.filters
+  align-self: flex-start
+  margin-right: 15px
+  padding: 15px 0 15px 0
+
+  .currency-select
+    margin: 15px
+    .currency
+      &-list
+        display: flex
+        list-style-type: none
+        padding: 0
+          
+      &-item
+        padding: 12px 21px
+        border: 1px solid #D2D5D6
+        border-right: 1px solid transparent
+        background-color: #fff
+        font-weight: 600
+        line-height: 22px
+        font-size: 12px
+        letter-spacing: 0.5px
+        text-transform: uppercase
+        color: #2196F3
+      &-item.active
+        background: #2196F3
+        color: #fff
+        border-color: #2196F3
+      &-input
+        appearance: none
+    
+  .filter-title
+    font-weight: 600
+    line-height: 19px
+    font-size: 12px
+    letter-spacing: 0.5px
+    text-transform: uppercase
+    color: #4A4A4A
+
+  .stops-select
+    .filter-title
+      padding-left: 15px
+
+    .label-text
+      vertical-align: middle
+      padding-left: 7px
+
+  .stops
+    &-item
+      padding: 8px 15px
+      display: block
+      &:hover
+        background-color: #F1FCFF
+        cursor: pointer
+
+    &-input
+      appearance: none
+      background: #F2FCFF
+      border: 1px solid #2196F3
+      border-radius: 3px
+      width: 19px
+      height: 19px
+      vertical-align: middle
+      &:checked
+        background: #F2FCFF url(./img/check-mark.png) center center no-repeat
+  
