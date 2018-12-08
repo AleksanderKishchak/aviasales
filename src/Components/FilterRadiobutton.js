@@ -25,7 +25,9 @@ function FilterRadiobutton({
 }
 
 FilterRadiobutton.propTypes = {
-  text: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired
 };
 
 export default FilterRadiobutton;
