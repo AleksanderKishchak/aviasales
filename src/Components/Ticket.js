@@ -70,9 +70,12 @@ class Ticket extends Component {
               />
             </div>
           </div>
-          {stopsString.length > 0 ? <div className="stops">{ stopsString }</div> : ''}
+          <div className="stops">
+            {stopsString}
+            <div className="line"></div>
+          </div>
           <div className="to">
-            <div className="time">{ arrival_time }</div>
+            <div className="time">{arrival_time}</div>
             <div className="place">{destination_name}, {destination}</div>
             <div className="date">
               <Moment

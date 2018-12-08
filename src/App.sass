@@ -64,14 +64,33 @@
       font-size: 12px
       color: #8B9497
     .stops
+      margin-top: 8px
       font-weight: 600
       line-height: 12px
       font-size: 10px
       text-align: center
       text-transform: uppercase
       color: #8B9497
-      border-bottom: 1px dotted #8B9497
+      //border-bottom: 1px dotted #8B9497
       align-self: flex-start
+      flex-grow: 1
+      .line
+        margin-top: 10px
+        height: 2px
+        width: 88%
+        background-color: #D2D5D6
+        position: relative
+        &::after
+          content: ''
+          position: absolute
+          top: -6px
+          right: -18px
+          display: inline-block
+          width: 14px
+          height: 15px
+          background: url(./img/airplane_icon.svg) center center no-repeat
+          background-size: contain
+          
       &-input
         background-color: none
         border: 1px solid blue
@@ -146,5 +165,5 @@
       height: 19px
       vertical-align: middle
       &:checked
-        background: #F2FCFF url(./img/check-mark.png) center center no-repeat
+        background: #F2FCFF url(./img/check-mark.svg) center center no-repeat
   
