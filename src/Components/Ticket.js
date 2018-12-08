@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import 'moment/locale/ru';
+import logo from '../img/turkish-airlines_logo.png';
 /*eslint-disable */
 
 function fromRUBtoUSD(price) {
@@ -51,7 +52,7 @@ class Ticket extends Component {
       <div className="ticket">
         <div className="ticket-buy">
           <img 
-            src="http://www.stickpng.com/assets/images/587b50f844060909aa603a7e.png" 
+            src={logo} 
             alt="turkish airlines" 
             className="ticket-logo" 
           />

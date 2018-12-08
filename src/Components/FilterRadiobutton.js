@@ -11,6 +11,7 @@ function FilterRadiobutton({
   return (
     <label className={`currency-item ${checked ? 'active' : ''}`}>
       <input
+        hidden
         checked={checked}
         className="currency-input"
         value={value}

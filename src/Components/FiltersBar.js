@@ -16,29 +16,23 @@ function FiltersBar({
     <form className="filters">
       <div className="currency-select">
         <h3 className="filter-title">валюта</h3>
-        <ul className="currency-list">
-          <li>
+        <div className="currency-list">
             <FilterRadiobutton 
               checked={currentCurrency === 'RUB'}
               handleChange={handleCurrencyChange}
               value="RUB"
             />
-          </li>
-          <li>
             <FilterRadiobutton 
               checked={currentCurrency === 'USD'}
               handleChange={handleCurrencyChange}
               value="USD"
             />
-          </li>
-          <li>
             <FilterRadiobutton 
               checked={currentCurrency === 'EUR'}
               handleChange={handleCurrencyChange}
               value="EUR"
             />
-          </li>
-        </ul>
+        </div>
       </div>
       <div className="stops-select">
         <h3 className="filter-title">Количество пересадок</h3>
