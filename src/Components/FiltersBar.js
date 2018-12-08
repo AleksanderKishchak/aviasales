@@ -6,11 +6,13 @@ import FilterRadiobutton from './FilterRadiobutton';
 function FiltersBar({
   handleCurrencyChange,
   handleStopsChange,
+  selectOnlyOneStop,
   selectAllStops,
   stops,
-  currentCurrency,
-  showAll
+  currentCurrency
 }) {
+
+  const showAll1 = Object.values(stops).every(value =>value)
 
   return (
     <form className="filters">
@@ -39,29 +41,34 @@ function FiltersBar({
         <FilterCheckbox
           text="Все"
           handleChange={selectAllStops}
-          checked={showAll}
+          checked={showAll1}
+          hasBtn={false}
         />
         <FilterCheckbox 
           text="0 пересадок"
           handleChange={handleStopsChange}
+          handleBtnClick={selectOnlyOneStop}
           value="0"
           checked={stops[0]}
         />
         <FilterCheckbox 
           text="1 пересадка"
           handleChange={handleStopsChange}
+          handleBtnClick={selectOnlyOneStop}
           value="1"
           checked={stops[1]}
         />
         <FilterCheckbox 
           text="2 пересадки"
           handleChange={handleStopsChange}
+          handleBtnClick={selectOnlyOneStop}
           value="2"
           checked={stops[2]}
         />
         <FilterCheckbox 
-          text="3 пересадка"
+          text="3 пересадки"
           handleChange={handleStopsChange}
+          handleBtnClick={selectOnlyOneStop}
           value="3"
           checked={stops[3]}
         />

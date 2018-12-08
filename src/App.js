@@ -15,10 +15,10 @@ class App extends Component {
       currentCurrency: 'RUB',
       showAll: true,
       stops: {
-        0: false,
-        1: false,
-        2: false,
-        3: false
+        0: true,
+        1: true,
+        2: true,
+        3: true
       }
     }
   }
@@ -31,17 +31,59 @@ class App extends Component {
 
   handleStopsChange = e => {
     const newStops = this.state.stops;
+    let isAllActive;
+
     newStops[e.target.value] = !newStops[e.target.value];
+    isAllActive = Object.values(newStops).every(value => value);
+
+    if(isAllActive) {
+      this.setState({
+        stops: newStops,
+        showAll: true
+      });
+    } else {
+      this.setState({
+        stops: newStops,
+        showAll: false
+      });
+    }
+  }
+
+  selectOnlyOneStop = value => {
+    const newStops = this.state.stops;
+
+    for (const key in newStops) {
+      newStops[key] = key === value ? true : false
+    }
 
     this.setState({
+      showAll: false,
       stops: newStops
     });
   }
 
   selectAllStops = () => {
-    this.setState(state => ({
-      showAll: !state.showAll
-    }));
+    if(!this.state.showAll){
+      this.setState(state => ({
+        showAll: !state.showAll,
+        stops: {
+          0: true,
+          1: true,
+          2: true,
+          3: true
+        }
+      }));
+    } else {
+      this.setState(state => ({
+        showAll: !state.showAll,
+        stops: {
+          0: false,
+          1: false,
+          2: false,
+          3: false
+        }
+      }));
+    }
   }
 
   render() {
@@ -56,6 +98,7 @@ class App extends Component {
         <FiltersBar 
           handleCurrencyChange={this.handleCurrencyChange}
           handleStopsChange={this.handleStopsChange}
+          selectOnlyOneStop={this.selectOnlyOneStop}
           selectAllStops={this.selectAllStops}
           stops={stops}
           currentCurrency={currentCurrency}
