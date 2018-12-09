@@ -3,7 +3,7 @@ import tickets from './data/tickets';
 import './App.sass';
 import FiltersBar from './Components/FiltersBar';
 import TicketsList from './Components/TicketsList';
-/*eslint-disable */
+import logo from './img/app-logo.png';
 
 const ticketsList = tickets.tickets;
 
@@ -94,22 +94,29 @@ class App extends Component {
     } = this.state;
 
     return (
-      <div className="app">
-        <FiltersBar 
-          handleCurrencyChange={this.handleCurrencyChange}
-          handleStopsChange={this.handleStopsChange}
-          selectOnlyOneStop={this.selectOnlyOneStop}
-          selectAllStops={this.selectAllStops}
-          stops={stops}
-          currentCurrency={currentCurrency}
-          showAll={showAll}
+      <div>
+        <img
+          src={logo} 
+          alt="app logo, airplane" 
+          className="app-logo"
         />
-        <TicketsList 
-          tickets={ticketsList}
-          stops={stops}
-          currentCurrency={currentCurrency}
-          showAll={showAll}
-        />
+        <div className="app">
+          <FiltersBar 
+            handleCurrencyChange={this.handleCurrencyChange}
+            handleStopsChange={this.handleStopsChange}
+            selectOnlyOneStop={this.selectOnlyOneStop}
+            selectAllStops={this.selectAllStops}
+            stops={stops}
+            currentCurrency={currentCurrency}
+            showAll={showAll}
+          />
+          <TicketsList 
+            tickets={ticketsList}
+            stops={stops}
+            currentCurrency={currentCurrency}
+            showAll={showAll}
+          />
+        </div>
       </div>
     );
   }

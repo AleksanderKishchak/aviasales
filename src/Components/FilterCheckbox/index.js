@@ -23,12 +23,12 @@ function FilterCheckbox({
         {text}
       </span>
       {hasBtn ? 
-        <button 
+        (<button 
           type="button"
           className="select-only"
           onClick={() => handleBtnClick(value)}
         >Только
-        </button> : ''
+        </button>) : ''
       }
     </label>
   );
@@ -44,7 +44,7 @@ FilterCheckbox.propTypes = {
 
 FilterCheckbox.defaultProps = {
   hasBtn: true,
-  handleBtnClick: () => null
+  handleBtnClick: () => false
 }
 
 export default FilterCheckbox;

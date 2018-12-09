@@ -15,7 +15,8 @@ module.exports = {
         "arrow-parens": ["error", "as-needed"],
         "react/forbid-prop-types": "any",
         "react/jsx-one-expression-per-line": "allow",
-        "no-console": 0
+        "no-console": 0,
+        "camelcase": 0,
     },
     "env": {
         "browser": true
