@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import tickets from './data/tickets';
 import './App.sass';
-import FiltersBar from './Components/FiltersBar';
-import TicketsList from './Components/TicketsList';
 import logo from './img/app-logo.png';
+import {
+  FiltersBar,
+  TicketsList
+} from './Components/index';
 
 const ticketsList = tickets.tickets;
 
@@ -13,6 +15,7 @@ class App extends Component {
 
     this.state = {
       currentCurrency: 'RUB',
+      filteredTickets: ticketsList,
       showAll: true,
       stops: {
         0: true,
@@ -40,12 +43,12 @@ class App extends Component {
       this.setState({
         stops: newStops,
         showAll: true
-      });
+      }, this.filterTickets);
     } else {
-      this.setState({
+      this.setState(() => ({
         stops: newStops,
         showAll: false
-      });
+      }), this.filterTickets);
     }
   }
 
@@ -59,7 +62,7 @@ class App extends Component {
     this.setState({
       showAll: false,
       stops: newStops
-    });
+    }, this.filterTickets);
   }
 
   selectAllStops = () => {
@@ -72,7 +75,7 @@ class App extends Component {
           2: true,
           3: true
         }
-      }));
+      }), this.filterTickets);
     } else {
       this.setState(state => ({
         showAll: !state.showAll,
@@ -82,25 +85,45 @@ class App extends Component {
           2: false,
           3: false
         }
-      }));
+      }), this.filterTickets);
     }
+    
+  }
+
+  filterTickets = () => {
+    const {
+      showAll,
+      stops
+    } = this.state;
+
+    let filteredTickets;
+    if (!showAll) {
+      filteredTickets = ticketsList.filter(ticket => stops[ticket.stops]);
+    } else {
+      filteredTickets = ticketsList;
+    }
+
+    this.setState({
+      filteredTickets: filteredTickets
+    });
   }
 
   render() {
     const { 
       stops,
       currentCurrency,
-      showAll
+      showAll,
+      filteredTickets
     } = this.state;
 
     return (
-      <div>
+      <div className="app">
         <img
           src={logo} 
           alt="app logo, airplane" 
           className="app-logo"
         />
-        <div className="app">
+        <div className="app-main">
           <FiltersBar 
             handleCurrencyChange={this.handleCurrencyChange}
             handleStopsChange={this.handleStopsChange}
@@ -111,10 +134,8 @@ class App extends Component {
             showAll={showAll}
           />
           <TicketsList 
-            tickets={ticketsList}
-            stops={stops}
+            tickets={filteredTickets}
             currentCurrency={currentCurrency}
-            showAll={showAll}
           />
         </div>
       </div>
