@@ -4,14 +4,7 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 import 'moment/locale/ru';
 import logo from '../../img/turkish-airlines_logo.png';
-
-function fromRUBtoUSD(price) {
-  return (price * 0.015).toFixed(2);
-}
-
-function fromRUBtoEUR(price) {
-  return (price * 0.013).toFixed(2);
-}
+import getConvertedPrice from '../../common/convertCurrency';
 
 function Ticket({
   currentCurrency,
@@ -29,7 +22,7 @@ function Ticket({
   }
 }) {
   let stopsString = '';
-  let convertedPrice;
+  const convertedPrice = getConvertedPrice(price, currentCurrency);
 
   switch (stops) {
     case 0: break;
@@ -37,12 +30,6 @@ function Ticket({
     case 2: stopsString = '2 пересадки'; break;
     case 3: stopsString = '3 пересадки'; break;
     default: stopsString = 'больше трех пересадок'; break;
-  }
-
-  switch (currentCurrency) {
-    case 'USD': convertedPrice = `${fromRUBtoUSD(price)}$`; break;
-    case 'EUR': convertedPrice = `${fromRUBtoEUR(price)}€`; break;
-    default: convertedPrice = `${price}P`;
   }
 
   return (

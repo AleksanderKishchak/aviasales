@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterCheckbox from '../FilterCheckbox';
-import FilterRadiobutton from '../FilterRadiobutton';
+import {
+  FilterCheckbox,
+  FilterRadiobutton
+} from '../index';
 
 function FiltersBar({
   handleCurrencyChange,
@@ -83,6 +85,6 @@ FiltersBar.propTypes = {
   selectAllStops: PropTypes.func.isRequired,
   stops: PropTypes.object.isRequired,
   currentCurrency: PropTypes.string.isRequired
-}
+};
 
 export default FiltersBar;
