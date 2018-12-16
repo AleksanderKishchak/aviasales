@@ -1,0 +1,125 @@
+.ticket
+  margin: 0 0.63rem 0.63rem 0.63rem
+  max-width: 37.5rem
+  transition: .1s
+  text-align: left
+  &:hover
+    box-shadow: 0px 0.63rem 3.13rem rgba(91, 137, 164, 0.25)
+
+  &-buy
+    width: 30%
+    padding: 1.25rem
+    display: inline-flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    border-right: 1px solid #ECEFF1
+    .ticket-logo
+      max-width: 6.25rem
+      margin-bottom: 0.63rem
+    .buy-btn
+      padding: 0.75rem
+      margin: 0 0.63rem
+      width: 8.75rem
+      color: white
+      border: none
+      background: #c86d00
+      box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1), 0px 1px 0px #D64D08
+      border-radius: 5px
+      cursor: pointer
+      text-align: center
+      font-weight: 600
+      font-size: 0.93rem
+      transition: .1s
+      &:hover
+        background: lighten(#c86d00, 7%)
+      &:active
+        transform: translateY(2px)
+  &-info
+    width: 70%
+    padding: 1.25rem
+    vertical-align: top
+    display: inline-flex
+    justify-content: space-between
+
+  &-from,
+  &-to
+    width: 8.75rem
+  &-to
+    text-align: right
+  &-time
+    font-size: 2rem
+    color: #4A4A4A
+    margin-bottom: 1px
+  &-place
+    margin-bottom: 3px
+    font-weight: 700
+    font-size: 0.75rem
+    color: #4A4A4A
+  &-date
+    font-weight: 300
+    font-size: 0.75rem
+    color: #8B9497
+  &-stops
+    margin-top: 0.5rem
+    height: 1.5rem
+    font-weight: 600
+    line-height: 0.75rem
+    font-size: 0.625rem
+    text-align: center
+    text-transform: uppercase
+    color: #8B9497
+    align-self: flex-start
+    flex-grow: 1
+    display: flex;
+    flex-direction: column
+    justify-content: flex-end
+    align-items: center
+    .line
+      margin-top: 0.63rem
+      height: 2px
+      width: 167%
+      max-width: 200px
+      background-color: #D2D5D6
+      position: relative
+      left: -7px
+      &::after
+        content: ''
+        position: absolute
+        top: -6px
+        right: -18px
+        display: inline-block
+        width: calc(1rem - 2px)
+        height: calc(1rem - 1px)
+        background: url(../../img/airplane_icon.svg) center center no-repeat
+        background-size: contain
+
+@media screen and (max-width: 992px)
+  .ticket
+    .buy-btn
+      width: 100px
+
+@media screen and (max-width: 768px)
+  .ticket
+    display: flex
+    flex-direction: column
+    &-info
+      flex-grow: 1
+      width: auto
+    &-buy
+      justify-content: center
+      order: 1
+      width: auto
+      padding: 0.5rem
+      align-self: center
+      border-right: none
+      .buy-btn
+        min-width: 10rem
+    &-logo
+      display: none
+
+@media screen and (max-width: 576px)
+  .ticket
+    margin: 0.5rem 0
+    .line
+      display: none

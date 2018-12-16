@@ -4,10 +4,8 @@ import { PropTypes } from 'prop-types';
 function FilterRadiobutton({
   checked,
   value,
-  handleChange,
-  ...rest
+  handleChange
 }) {
-  
   return (
     <label className={`currency-item ${checked ? 'active' : ''}`}>
       <input
@@ -17,7 +15,6 @@ function FilterRadiobutton({
         value={value}
         onChange={handleChange}
         type="radio"
-        {...rest}
       />
       {value}
     </label>

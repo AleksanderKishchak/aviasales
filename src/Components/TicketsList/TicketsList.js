@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Ticket } from '../index';
+import './TicketsList.sass';
 
 function TicketsList({
   tickets,

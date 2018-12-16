@@ -5,6 +5,17 @@ import 'moment-timezone';
 import 'moment/locale/ru';
 import logo from '../../img/turkish-airlines_logo.png';
 import getConvertedPrice from '../../common/convertCurrency';
+import './Ticket.sass';
+
+function getStopsString(stops) {
+  switch (stops) {
+    case 0: break;
+    case 1: return '1 пересадка';
+    case 2: return '2 пересадки';
+    case 3: return '3 пересадки';
+    default: return 'больше трех пересадок';
+  }
+}
 
 function Ticket({
   currentCurrency,
@@ -21,16 +32,8 @@ function Ticket({
     price
   }
 }) {
-  let stopsString = '';
+  const stopsString = getStopsString(stops);
   const convertedPrice = getConvertedPrice(price, currentCurrency);
-
-  switch (stops) {
-    case 0: break;
-    case 1: stopsString = '1 пересадка'; break;
-    case 2: stopsString = '2 пересадки'; break;
-    case 3: stopsString = '3 пересадки'; break;
-    default: stopsString = 'больше трех пересадок'; break;
-  }
 
   return (
     <div className="ticket">

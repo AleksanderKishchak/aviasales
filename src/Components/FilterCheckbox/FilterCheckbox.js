@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import './FilterCheckbox.sass';
 
 function FilterCheckbox({
   text,
@@ -7,28 +8,30 @@ function FilterCheckbox({
   handleChange,
   handleBtnClick,
   value,
-  ...rest
+  checked
 }) {
-  
   return (
-    <label className="stops-item">
+    <label className="stops-item checkbox">
       <input
         className="stops-input"
         type="checkbox"
         value={value}
         onChange={handleChange}
-        {...rest}
+        checked={checked}
       />
       <span className="label-text">
         {text}
       </span>
-      {hasBtn ? 
-        (<button 
-          type="button"
-          className="select-only"
-          onClick={() => handleBtnClick(value)}
-        >Только
-        </button>) : ''
+      {hasBtn
+        ? (
+          <button
+            type="button"
+            className="select-only"
+            onClick={() => handleBtnClick(value)}
+          >
+            Только
+          </button>
+        ) : ''
       }
     </label>
   );
@@ -39,12 +42,14 @@ FilterCheckbox.propTypes = {
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleBtnClick: PropTypes.func,
-  hasBtn: PropTypes.bool
+  hasBtn: PropTypes.bool,
+  checked: PropTypes.bool
 };
 
 FilterCheckbox.defaultProps = {
   hasBtn: true,
-  handleBtnClick: () => false
-}
+  handleBtnClick: () => false,
+  checked: true
+};
 
 export default FilterCheckbox;
