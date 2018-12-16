@@ -1,0 +1,36 @@
+.stops
+  &-item
+    padding: 0.5rem 1rem
+    display: block
+    &:hover
+      background-color: #F1FCFF
+      cursor: pointer
+      .select-only
+        display: inline-block
+    .select-only
+        display: none
+        margin-top: 2px
+        margin-left: 1.25rem
+        background: none
+        border: none
+        outline: none
+        text-transform: uppercase
+        vertical-align: middle
+        font-weight: 600
+        font-size: 0.69rem
+        letter-spacing: 0.5px
+        color: #2196F3
+        cursor: pointer
+        &:hover
+          text-decoration: underline
+
+  &-input
+    appearance: none
+    background: #F2FCFF
+    border: 1px solid #2196F3
+    border-radius: 3px
+    width: 1.2rem
+    height: 1.2rem
+    vertical-align: middle
+    &:checked
+      background: #F2FCFF url(../../img/check-mark.svg) center center no-repeat
