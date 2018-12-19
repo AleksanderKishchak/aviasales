@@ -15,7 +15,7 @@ class App extends Component {
 
     this.state = {
       currentCurrency: 'RUB',
-      filteredTickets: ticketsList,
+      filteredTickets: [],
       showAll: true,
       stops: {
         0: true,
@@ -24,6 +24,18 @@ class App extends Component {
         3: true
       }
     }
+  }
+
+  componentDidMount() {
+    this.fetchTickets();
+  }
+
+  fetchTickets = () => {
+    const sortedTicketsList = ticketsList.sort((a, b) => a.price - b.price);
+    console.log(sortedTicketsList);
+    this.setState({
+      filteredTickets: sortedTicketsList
+    });
   }
 
   handleCurrencyChange = e => {
