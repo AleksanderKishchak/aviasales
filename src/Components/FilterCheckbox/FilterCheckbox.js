@@ -39,7 +39,7 @@ function FilterCheckbox({
 
 FilterCheckbox.propTypes = {
   text: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleBtnClick: PropTypes.func,
   hasBtn: PropTypes.bool,
@@ -49,8 +49,7 @@ FilterCheckbox.propTypes = {
 FilterCheckbox.defaultProps = {
   hasBtn: true,
   handleBtnClick: () => false,
-  checked: true,
-  value: ''
+  checked: true
 };
 
 export default FilterCheckbox;
