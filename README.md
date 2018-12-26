@@ -1,5 +1,7 @@
 Test task from [hexlet test task](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
 
+Also available at https://aleksanderkishchak.github.io/aviasales/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
